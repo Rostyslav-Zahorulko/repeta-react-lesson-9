@@ -1,9 +1,10 @@
 import Container from './components/Container';
+import Counter from './components/Counter';
 
 const App = () => {
   return (
     <Container>
-      <h1>Hello world!</h1>
+      <Counter />
     </Container>
   );
 };
