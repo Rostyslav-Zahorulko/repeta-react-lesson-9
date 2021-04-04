@@ -1,12 +1,30 @@
 import Container from './components/Container';
-import Counter from './components/Counter';
 
-const App = () => {
-  return (
-    <Container>
-      <Counter />
-    </Container>
-  );
-};
+import { Switch, Route, Link } from 'react-router-dom';
+import CounterPage from './pages/CounterPage';
+import TodosPage from './pages/TodosPage';
+
+const App = () => (
+  <Container>
+    <ul>
+      <li>
+        <Link to="/counter">Счётчик</Link>
+      </li>
+      <li>
+        <Link to="/todos">Заметки</Link>
+      </li>
+    </ul>
+
+    <Switch>
+      <Route path="/counter">
+        <CounterPage />
+      </Route>
+
+      <Route path="/todos">
+        <TodosPage />
+      </Route>
+    </Switch>
+  </Container>
+);
 
 export default App;
