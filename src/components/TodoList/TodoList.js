@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import * as actions from '../../redux/todos/todos-actions';
+import * as todosActions from '../../redux/todos/todos-actions';
 import classNames from 'classnames';
 import Todo from '../Todo';
 import './TodoList.scss';
@@ -46,8 +46,8 @@ const mapStateToProps = ({ todos: { filter, items } }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onDeleteTodo: id => dispatch(actions.deleteTodo(id)),
-  onUpdateTodo: () => null,
+  onDeleteTodo: id => dispatch(todosActions.deleteTodo(id)),
+  onUpdateTodo: id => dispatch(todosActions.updateTodo(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

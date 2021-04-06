@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import * as actions from '../../redux/todos/todos-actions';
+import * as todosActions from '../../redux/todos/todos-actions';
 
 import './TodoFilter.scss';
 
@@ -21,7 +21,7 @@ const mapStateToProps = ({ todos }) => ({
 
 const mapDispatchToProps = dispatch => ({
   onFilterTodos: event =>
-    dispatch(actions.filterTodos(event.currentTarget.value)),
+    dispatch(todosActions.filterTodos(event.currentTarget.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoFilter);

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import * as actions from '../../redux/counter/counter-actions';
+import * as counterActions from '../../redux/counter/counter-actions';
 import Controls from '../Controls';
 import Value from '../Value';
 import './Counter.scss';
@@ -24,8 +24,8 @@ const mapStateToProps = ({ counter }) => ({
 });
 
 const mapDispatchtoProps = dispatch => ({
-  handleIncrement: value => dispatch(actions.increment(value)),
-  handleDecrement: value => dispatch(actions.decrement(value)),
+  handleIncrement: value => dispatch(counterActions.increment(value)),
+  handleDecrement: value => dispatch(counterActions.decrement(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchtoProps)(Counter);

@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../redux/todos/todos-actions';
+import * as todosActions from '../../redux/todos/todos-actions';
 import './TodoEditor.scss';
 
 class TodoEditor extends Component {
@@ -14,15 +14,16 @@ class TodoEditor extends Component {
 
   handleSubmit = event => {
     const { message } = this.state;
-    const { onAddTodo } = this.props;
+    const { onAddTodo, onSave } = this.props;
 
     event.preventDefault();
 
-    // if (message !== '') {
-    onAddTodo(message);
+    if (message !== '') {
+      onAddTodo(message);
+      onSave();
 
-    this.setState({ message: '' });
-    // }
+      this.setState({ message: '' });
+    }
   };
 
   render() {
@@ -44,7 +45,7 @@ class TodoEditor extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onAddTodo: text => dispatch(actions.addTodo(text)),
+  onAddTodo: text => dispatch(todosActions.addTodo(text)),
 });
 
 export default connect(null, mapDispatchToProps)(TodoEditor);
